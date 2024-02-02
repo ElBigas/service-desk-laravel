@@ -24,7 +24,7 @@
 
 <body>
 
-    <header>
+    {{-- <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
 
@@ -117,20 +117,6 @@
         </nav>
     </header>
 
-    <div class="container py-5">
-        @if (session('msg'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('msg') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-
-        {{-- @yield é usada no Laravel para definir uma seção em um arquivo de
-        template Blade. Uma seção é um espaço reservado onde o conteúdo pode ser
-        inserido dinamicamente de outras views. --}}
-        @yield('content')
-    </div>
-
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
@@ -163,10 +149,90 @@
                 </li>
             </ul>
         </footer>
+    </div> --}}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1 m-0 p-0">
+                <div class="d-flex flex-column bg-light " style="width: 4rem; height: 100vh">
+                    <a href="/" class="d-block p-3 link-dark text-decoration-none text-center"
+                        data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="App Service Desk">
+                        <img src="/img/favicon.png" width="30" alt="App Service Desk Logo">
+                        <span class="visually-hidden">App Service Desk</span>
+                    </a>
+                    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active py-3" aria-current="page" data-bs-toggle="tooltip"
+                                data-bs-placement="right" data-bs-original-title="Home">
+                                <i class="bi bi-house-door" style="font-size: 24px;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link py-3" data-bs-toggle="tooltip" data-bs-placement="right"
+                                data-bs-original-title="Dashboard">
+                                <i class="bi bi-speedometer2" style="font-size: 24px;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link py-3" data-bs-toggle="tooltip" data-bs-placement="right"
+                                data-bs-original-title="Orders">
+                                <i class="bi bi-table" style="font-size: 24px;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link py-3" data-bs-toggle="tooltip" data-bs-placement="right"
+                                data-bs-original-title="Products">
+                                <i class="bi bi-grid" style="font-size: 24px;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link py-3" data-bs-toggle="tooltip" data-bs-placement="right"
+                                data-bs-title="Tooltip on right">
+                                <i class="bi bi-person-circle" style="font-size: 24px;"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <div class="dropdown border-top">
+                        <a href="#"
+                            class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
+                            id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24"
+                                class="rounded-circle">
+                        </a>
+                        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 pt-5">
+
+                @if (session('msg'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('msg') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @yield('content')
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
 
 </body>
